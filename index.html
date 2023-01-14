@@ -1,0 +1,21 @@
+    <!-- teste -->
+    <script>
+    function previewImage(){
+        var file = document.getElementById("file").files;
+        if ( file.length > 0 ) {
+            var fileReader = new FileReader();
+
+            fileReader.onload = function (event){
+                document.getElementById("preview").setAttribute("src", event.target.result)
+            };
+            fileReader.readAsDataURL(file[0]); 
+        }
+    }
+    </script>
+
+    <div style="margin: 50px;">
+        <form action="">
+        <input type="file" name="file" id="file" accept="image/*" onchange="previewImage();">
+        <img src="vide" class="img-fluid rounded" alt="test image upload and show" id="preview">
+        </form>
+    </div>
